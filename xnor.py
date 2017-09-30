@@ -1,8 +1,6 @@
 import numpy as np
+import argparse  # TODO: Implement with all args.
 
-
-# Number if iterations for training.
-# EPOCHS = 50000
 
 def sigmoid(num):
   return 1 / (1 + np.exp(-num))
@@ -17,7 +15,6 @@ inputs = np.array([[0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1]])
 
 outputs = np.array([[1], [0], [0], [1]])
 
-
 # Seed for deterministic behaviour, mainly for debugging.
 np.random.seed(1)
 
@@ -29,7 +26,7 @@ def main(num_layers=2, neurons=(3, 4, 1)):
     num_layers: Number of layers, excluding the o/p layer for now.
     neurons: Array of number of neurons in each layer.
   """
-  epochs = 50000
+  epochs = 100000  # Number of iterations for training.
   # Assert last layer has 1 neuron and len(neurons) == num_layers + 1.
   # This is gonna change later as the o/p doesn't stay 1 bit later.
   assert neurons[num_layers] == 1
